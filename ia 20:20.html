@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Institutions Administratives – Système Ultime 20/20</title>
+<style>
+:root {
+--bleu: #2563eb; --violet: #7c3aed; --orange: #ea580c; --vert: #059669;
+--rose: #db2777; --cyan: #0891b2; --jaune: #ca8a04; --rouge: #dc2626;
+--gris-fonce: #1e293b; --blanc: #ffffff;
+--bleu-clair: #dbeafe; --violet-clair: #ede9fe; --orange-clair: #fed7aa;
+--vert-clair: #bbf7d0; --rose-clair: #fbcfe8; --cyan-clair: #a5f3fc;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+background:#f8fafc; color:#0f172a; line-height:1.7;
+max-width:1500px; margin:auto; padding:30px 20px;
+}
+.header {
+background:linear-gradient(135deg, #1e3a8a 0%, #7c3aed 40%, #db2777 100%);
+color:white; padding:50px 60px; border-radius:30px;
+margin-bottom:35px; box-shadow:0 20px 40px rgba(124,58,237,0.3);
+text-align:center;
+}
+.header h1 { font-size:3.2rem; font-weight:900; letter-spacing:-1px; }
+.header .subtitle { font-size:1.5rem; opacity:0.95; margin-top:10px; }
+.meta { display:flex; justify-content:center; gap:30px; margin-top:25px; flex-wrap:wrap;
+font-size:1rem; background:rgba(255,255,255,0.2); border-radius:50px; padding:12px 35px; }
+.meta span { background:rgba(255,255,255,0.3); padding:6px 20px; border-radius:20px; font-weight:600; }
+
+.section {
+margin:35px 0; border-radius:24px; padding:30px 35px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05); border-left:8px solid;
+transition:all 0.2s;
+}
+.section:hover { transform:translateY(-2px); }
+
+.s0 { background:linear-gradient(135deg, #f1f5f9, #e2e8f0); border-color:#64748b; }
+.s1 { background:linear-gradient(135deg, #eff6ff, #dbeafe); border-color:#3b82f6; }
+.s2 { background:linear-gradient(135deg, #faf5ff, #ede9fe); border-color:#8b5cf6; }
+.s3 { background:linear-gradient(135deg, #fff7ed, #fed7aa); border-color:#f97316; }
+.s4 { background:linear-gradient(135deg, #f0fdf4, #bbf7d0); border-color:#10b981; }
+.s5 { background:linear-gradient(135deg, #fdf2f8, #fbcfe8); border-color:#ec4899; }
+.s6 { background:linear-gradient(135deg, #ecfeff, #a5f3fc); border-color:#06b6d4; }
+.s7 { background:linear-gradient(135deg, #eef2ff, #c7d2fe); border-color:#6366f1; }
+.s8 { background:linear-gradient(135deg, #fff1f2, #fecdd3); border-color:#f43f5e; }
+.s9 { background:linear-gradient(135deg, #fffbeb, #fde68a); border-color:#f59e0b; }
+
+.section h2 { font-size:2rem; font-weight:800; margin-bottom:20px; color:#0f172a;
+border-bottom:3px solid rgba(0,0,0,0.1); padding-bottom:10px; }
+.section h3 { font-size:1.4rem; font-weight:700; margin:20px 0 10px; color:#1e293b; }
+.section h4 { font-size:1.2rem; font-weight:600; margin:15px 0 8px; color:#334155; }
+.section p { margin-bottom:12px; }
+.section ul, .section ol { list-style:none; padding-left:0; margin:12px 0; }
+.section li { padding:8px 0 8px 32px; position:relative; margin-bottom:4px; }
+.section li::before {
+content:"▹"; position:absolute; left:8px; font-weight:bold; font-size:1.2rem;
+}
+.s0 li::before { color:#64748b; } .s1 li::before { color:#3b82f6; } .s2 li::before { color:#8b5cf6; }
+.s3 li::before { color:#f97316; } .s4 li::before { color:#10b981; } .s5 li::before { color:#ec4899; }
+.s6 li::before { color:#06b6d4; } .s7 li::before { color:#6366f1; } .s8 li::before { color:#f43f5e; }
+.s9 li::before { color:#f59e0b; }
+
+.box { background:rgba(255,255,255,0.85); backdrop-filter:blur(5px); border-radius:16px;
+padding:20px 25px; margin:20px 0; box-shadow:0 6px 18px rgba(0,0,0,0.05);
+border:1px solid rgba(0,0,0,0.05); }
+.key-point { background:#1e293b; color:white; border-radius:18px; padding:22px 28px;
+margin:24px 0; box-shadow:0 10px 25px rgba(0,0,0,0.15); }
+.key-point h4 { color:#facc15; margin-bottom:12px; }
+.key-point strong { color:#facc15; }
+
+table { width:100%; border-collapse:collapse; margin:20px 0; border-radius:16px;
+overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.05); }
+th { background:#1e293b; color:white; padding:14px; text-align:left; font-weight:700; }
+td { padding:12px 14px; border-bottom:1px solid #e2e8f0; background:rgba(255,255,255,0.9);
+vertical-align:top; }
+tr:last-child td { border-bottom:none; }
+tr:nth-child(even) td { background:rgba(0,0,0,0.02); }
+
+.motivation {
+background:linear-gradient(135deg, #dc2626 0%, #ea580c 50%, #f59e0b 100%);
+color:white; padding:30px; border-radius:24px; margin:30px 0;
+text-align:center; font-size:1.3rem; font-weight:700;
+}
+.arbre { background:#f8fafc; border-radius:16px; padding:20px; margin:20px 0;
+border:1px solid #e2e8f0; }
+.checklist { background:white; border-radius:16px; padding:20px 25px; margin:20px 0;
+box-shadow:0 6px 18px rgba(0,0,0,0.05); }
+.checklist li { padding:6px 0 6px 30px; }
+.checklist li::before { content:"☐"; color:#3b82f6; font-weight:bold; }
+
+.footer { text-align:center; color:#64748b; margin-top:50px; font-size:0.9rem;
+border-top:2px solid #cbd5e1; padding-top:25px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>⚡ SYSTÈME ULTIME ⚡</h1>
+<div class="subtitle">Institutions Administratives – Programmation Mentale 20/20</div>
+<div class="meta">
+<span>Cours Pr. Gilles Dumont</span>
+<span>UPA – L1 Droit</span>
+<span>Examen : 1h – 15 questions</span>
+<span>MENTALITÉ RONALDO x RASHFORD</span>
+</div>
+</div>
+
+<!-- MOTIVATION -->
+<div class="motivation">
+SIIIUUU ! TU ES LE GOAT. TU MARCHES SUR LE PARTIEL. AUCUNE ERREUR. DOMINATION TOTALE.<br>
+« TALENT WITHOUT WORKING HARD IS NOTHING. » — CRISTIANO RONALDO.<br>
+TU AS RÉVISÉ, TU ES PRÊT. CE PDF EST TON ARME. EXÉCUTION PARFAITE. LETS GO.
+</div>
+
+<!-- ========== COUCHE 1 : MÉTA‑RÉFLEXION ========== -->
+<div class="section s0">
+<h2>1. PENSER COMME LE PROFESSEUR : POURQUOI IL A ÉCRIT ÇA ?</h2>
+<div class="box">
+<h3>🔍 Les intentions cachées derrière chaque cas pratique</h3>
+<p>Chaque cas pratique est un <strong>test ciblé</strong>. Le professeur ne raconte pas une histoire pour le plaisir : il veut vérifier que vous avez compris UN point précis du cours. Voici les schémas récurrents :</p>
+<table>
+<tr><th>Situation</th><th>Ce que le prof veut vraiment tester</th></tr>
+<tr><td>Un maire refuse quelque chose / prend un arrêté</td><td>Double casquette : exécutif communal OU agent de l'État ?</td></tr>
+<tr><td>Un décret est pris sans consulter le Conseil d'État</td><td>Vice de compétence (et non de procédure)</td></tr>
+<tr><td>Un préfet « sanctionne » un maire</td><td>Le préfet ne peut pas révoquer/suspendre un maire</td></tr>
+<tr><td>Un préfet de région prend un arrêté de police</td><td>Piège : le préfet de région n'a pas de pouvoir de police</td></tr>
+<tr><td>Un ministre signe un décret</td><td>Incompétence : seul le PM a le pouvoir réglementaire</td></tr>
+<tr><td>Un contrat est signé sans délibération du conseil</td><td>L'exécutif doit être habilité par l'assemblée délibérante</td></tr>
+<tr><td>Le préfet refuse de déférer un acte</td><td>Refus de déféré = insusceptible de recours</td></tr>
+<tr><td>Une commune signe un traité avec un État étranger</td><td>Interdiction pour les CT de conclure des traités internationaux</td></tr>
+</table>
+</div>
+<div class="key-point">
+<h4>🧠 RÉFLEXE MÉTA</h4>
+<p>Avant de répondre, demandez-vous : <strong>« Quel concept du cours le prof veut‑il vérifier ici ? »</strong> Si vous identifiez le concept, vous avez 80 % de la réponse.</p>
+</div>
+</div>
+
+<!-- ========== COUCHE 2 : GAMIFICATION ========== -->
+<div class="section s1">
+<h2>2. GAMIFICATION : LE QCM COMME UN JEU</h2>
+<div class="box">
+<h3>🏆 LE JEU DES 4 QUESTIONS MAGIQUES</h3>
+<p>Pour chaque question, vous devez répondre MENTALEMENT à ces 4 questions dans l'ordre :</p>
+<ol>
+<li><strong>QUI agit ?</strong> (nommez l'acteur : maire, préfet, ministre, PM, Président…)</li>
+<li><strong>EN QUELLE QUALITÉ ?</strong> (exécutif, agent de l'État, représentant, autorité de police…)</li>
+<li><strong>QUEL POUVOIR a-t-il ?</strong> (compétence liée, pouvoir discrétionnaire, police, réglementation…)</li>
+<li><strong>QUEL CONTRÔLE s'applique ?</strong> (hiérarchique, légalité, tutelle, quel juge ?)</li>
+</ol>
+<p>Si vous répondez correctement aux 4 → <strong>niveau validé</strong>. Un doute sur une seule → <strong>attention danger</strong>.</p>
+</div>
+<div class="box">
+<h3>👾 LES BOSS DE FIN DE NIVEAU</h3>
+<p>Certains cas pratiques sont des <strong>BOSS</strong> car ils cumulent 2 ou 3 difficultés. Repérez-les :</p>
+<ul>
+<li><strong>Boss « Maire agent de l'État + Police spéciale + Préfet de région »</strong> → cumul déconcentration/décentralisation/police</li>
+<li><strong>Boss « Décret en Conseil d'État + Absence de consultation + Contreseing manquant »</strong> → cumul procédure/compétence/forme</li>
+<li><strong>Boss « AAI + Sanction + Recours judiciaire vs administratif »</strong> → exception au principe du juge administratif</li>
+<li><strong>Boss « Transfert de compétence + Compensation financière + Contrôle budgétaire »</strong> → cumul décentralisation/finances/contrôle</li>
+</ul>
+<p>Quand vous repérez un boss, <strong>ralentissez de 10 secondes</strong>. Vérifiez chaque couche du cumul.</p>
+</div>
+<div class="box">
+<h3>🏅 LES TROPHÉES MENTAUX</h3>
+<ul>
+<li>🏆 « J'ai déjoué le piège du préfet de région en 2 secondes »</li>
+<li>🏆 « J'ai repéré la double casquette du maire avant de lire les réponses »</li>
+<li>🏆 « J'ai identifié un acte de gouvernement irrecevable sans hésiter »</li>
+<li>🏆 « J'ai évité le piège du silence = acceptation implicite »</li>
+<li>🏆 « J'ai su que la consultation du CE est un vice de compétence, pas de procédure »</li>
+</ul>
+</div>
+</div>
+
+<!-- ========== COUCHE 3 : LIENS TRANSVERSES ========== -->
+<div class="section s2">
+<h2>3. LES PONTS INVISIBLES : CONNECTER LES CONCEPTS</h2>
+<div class="box">
+<h3>🌉 Tableau des ponts</h3>
+<table>
+<tr><th>Acteur</th><th>Appartient à…</th><th>Mais aussi à…</th></tr>
+<tr><td>Maire</td><td>Décentralisation (exécutif communal)</td><td>Déconcentration (agent de l'État : état civil, élections)</td></tr>
+<tr><td>Préfet de département</td><td>Déconcentration (représentant de l'État)</td><td>Contrôle de la décentralisation (déféré préfectoral)</td></tr>
+<tr><td>Préfet de région</td><td>Déconcentration (coordination)</td><td>N'a PAS le pouvoir de police</td></tr>
+<tr><td>Conseil d'État</td><td>Consultatif (avis sur projets)</td><td>Juridictionnel (juge administratif suprême)</td></tr>
+<tr><td>Établissement public</td><td>Décentralisation fonctionnelle</td><td>Rattaché à l'État (tutelle, pas hiérarchie)</td></tr>
+<tr><td>AAI / API</td><td>Autorité indépendante</td><td>Rattachée au PM (budget), mais autonome</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ========== COUCHE 4 : AUTOMATISMES ========== -->
+<div class="section s3">
+<h2>4. AUTOMATISMES : MOTS‑CLÉS DÉCLENCHEURS</h2>
+<div class="box">
+<h3>⚡ Dès que vous lisez…</h3>
+<table>
+<tr><th>Mot / phrase lu(e)</th><th>Réflexe immédiat</th></tr>
+<tr><td>« maire refuse d'inscrire un électeur »</td><td>→ Maire agent de l'État → Préfet peut se substituer</td></tr>
+<tr><td>« décret en Conseil d'État sans consultation »</td><td>→ Vice de compétence</td></tr>
+<tr><td>« le préfet suspend un maire »</td><td>→ Illégal, seul le ministre peut (arrêté ministériel)</td></tr>
+<tr><td>« le préfet de région interdit une manifestation »</td><td>→ Illégal, pas de pouvoir de police</td></tr>
+<tr><td>« silence de 2 mois »</td><td>→ Décision implicite d'acceptation (depuis 2013)</td></tr>
+<tr><td>« le ministre signe un décret »</td><td>→ Illégal, seul le PM a le pouvoir réglementaire</td></tr>
+<tr><td>« conflit d'intérêts au conseil municipal »</td><td>→ Obligation de déport, délibération annulable</td></tr>
+<tr><td>« le préfet refuse de déférer »</td><td>→ Refus non susceptible de recours</td></tr>
+<tr><td>« la commune signe un traité avec un État »</td><td>→ Illégal, pas de relations internationales pour les CT</td></tr>
+<tr><td>« le conseil municipal n'a pas délibéré »</td><td>→ Contrat nul, maire non habilité</td></tr>
+<tr><td>« budget non voté au 15 avril »</td><td>→ Préfet saisit la CRC, qui propose, puis préfet arrête</td></tr>
+<tr><td>« nomination du Premier ministre contestée »</td><td>→ Acte de gouvernement → irrecevable</td></tr>
+<tr><td>« suspension automatique en urbanisme »</td><td>→ Déféré + demande dans les 10 jours</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ========== COUCHE 5 : VISUALISATION ========== -->
+<div class="section s4">
+<h2>5. TABLEAU DE BORD MENTAL</h2>
+<div class="box">
+<h3>📊 Les 4 colonnes à avoir en tête</h3>
+<table>
+<tr><th>Qui ?</th><th>Compétence</th><th>Contrôle</th><th>Recours</th></tr>
+<tr><td>Président</td><td>Nomination, décrets en CM</td><td>Actes admin → CE</td><td>CE (1er et dernier ressort)</td></tr>
+<tr><td>Premier ministre</td><td>Pouvoir réglementaire (art. 21)</td><td>Contreseing, coordination</td><td>CE (décrets)</td></tr>
+<tr><td>Ministre</td><td>Arrêtés, décisions indiv.</td><td>Hiérarchique du PM</td><td>TA de Paris (arrêtés)</td></tr>
+<tr><td>Préfet de département</td><td>Police, substitution, déféré</td><td>Hiérarchique du ministre</td><td>TA du ressort</td></tr>
+<tr><td>Préfet de région</td><td>Coordination, pas de police</td><td>Fonctionnel sur préfets dép.</td><td>TA du ressort</td></tr>
+<tr><td>Maire (exécutif)</td><td>Police municipale, exécution</td><td>Contrôle de légalité (déféré)</td><td>TA du ressort</td></tr>
+<tr><td>Maire (agent État)</td><td>État civil, listes électorales</td><td>Hiérarchique du préfet</td><td>TA du ressort</td></tr>
+<tr><td>Conseil municipal</td><td>Délibérations, budget</td><td>Déféré préfectoral</td><td>TA du ressort</td></tr>
+<tr><td>Établissement public</td><td>Spécialité fonctionnelle</td><td>Tutelle (pas hiérarchique)</td><td>TA du siège</td></tr>
+<tr><td>AAI / API</td><td>Régulation, sanction</td><td>Autonomie, rattachement PM</td><td>CE ou cour d'appel (conc.)</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ========== MATRICE DE DÉCISION PAR ACTEUR ========== -->
+<div class="section s5">
+<h2>6. MATRICE DE DÉCISION – TOUS LES ACTEURS</h2>
+
+<div class="box">
+<h3>🏛 Administration centrale</h3>
+<table>
+<tr><th>Acteur</th><th>Peut</th><th>Ne peut pas</th><th>Piège</th></tr>
+<tr><td>Président</td><td>Nommer PM/ministres, décrets en CM, art.13</td><td>Pouvoir réglementaire général (art.21)</td><td>Actes de gouvernement = irrecevables</td></tr>
+<tr><td>Premier ministre</td><td>Pouvoir réglementaire (art.21), direction</td><td>Sanctionner un ministre</td><td>Contreseing obligatoire pour décrets en CE</td></tr>
+<tr><td>Ministre</td><td>Arrêtés, décisions dans son attribution</td><td>Prendre un décret, agir avant décret d'attribution</td><td>Sans décret d'attribution = incompétent</td></tr>
+<tr><td>SGG</td><td>Examiner projets de loi/décrets</td><td>Imposer un avis contraignant</td><td>Consultation non obligatoire</td></tr>
+<tr><td>Conseil d'État (consultatif)</td><td>Avis sur projets, co‑auteur des décrets en CE</td><td>Lier le Gouvernement</td><td>Absence de consultation = vice de compétence</td></tr>
+<tr><td>Conseil d'État (contentieux)</td><td>Juge en 1er et dernier ressort des décrets</td><td>Juger les actes de gouvernement</td><td>Compétence partagée avec TA pour arrêtés</td></tr>
+</table>
+</div>
+
+<div class="box">
+<h3>🏘 Collectivités territoriales</h3>
+<table>
+<tr><th>Acteur</th><th>Peut</th><th>Ne peut pas</th><th>Piège</th></tr>
+<tr><td>Maire (exécutif)</td><td>Police municipale, exécuter délibérations</td><td>Engager la commune sans délibération</td><td>Double casquette</td></tr>
+<tr><td>Maire (agent État)</td><td>État civil, listes électorales, police judiciaire</td><td>Refuser d'appliquer la loi</td><td>Sous autorité hiérarchique du préfet</td></tr>
+<tr><td>Conseil municipal</td><td>Délibérer sur affaires communales, clause générale</td><td>Déléguer la police au maire</td><td>Quorum, convocation obligatoire</td></tr>
+<tr><td>Président CD</td><td>Préparer/exécuter budget, diriger services</td><td>Modifier les conditions légales du RSA</td><td>Compétences obligatoires</td></tr>
+<tr><td>Président CR</td><td>Développement économique, TER, lycées</td><td>Signer un traité international</td><td>Pas de clause de compétence générale</td></tr>
+</table>
+</div>
+
+<div class="box">
+<h3>🏗 Établissements publics, GIP, AAI</h3>
+<table>
+<tr><th>Acteur</th><th>Peut</th><th>Ne peut pas</th><th>Piège</th></tr>
+<tr><td>EPA</td><td>Activité administrative, personnel public</td><td>Activité commerciale (sauf accessoire)</td><td>Principe de spécialité</td></tr>
+<tr><td>EPIC</td><td>Activité industrielle et commerciale</td><td>Bénéficier d'aides d'État illégales</td><td>Personnel souvent privé</td></tr>
+<tr><td>GIP</td><td>Coopération public‑privé, mission d'intérêt général</td><td>Activité commerciale à but lucratif</td><td>Personne morale de droit public</td></tr>
+<tr><td>AAI</td><td>Régulation, sanction, avis</td><td>Annuler un acte administratif</td><td>Recours selon l'AAI (CE ou judiciaire)</td></tr>
+<tr><td>API</td><td>Personnalité morale, budget propre</td><td>—</td><td>Plus d'autonomie qu'une AAI</td></tr>
+</table>
+</div>
+</div>
+
+<!-- ========== ARBRES DE DÉCISION ========== -->
+<div class="section s6">
+<h2>7. ARBRES DE DÉCISION – COMPÉTENCE, CONTRÔLE, RECOURS</h2>
+<div class="arbre">
+<h3>🌳 QUI PEUT PRENDRE UN ACTE RÉGLEMENTAIRE ?</h3>
+<ul>
+<li><strong>Décret</strong> → Premier ministre (art.21) ou Président (Conseil des ministres)</li>
+<li><strong>Arrêté ministériel</strong> → Ministre dans son domaine d'attribution</li>
+<li><strong>Arrêté préfectoral</strong> → Préfet (département ou région)</li>
+<li><strong>Arrêté municipal</strong> → Maire (police, exécution)</li>
+<li><strong>Délibération</strong> → Conseil municipal, départemental, régional</li>
+</ul>
+<p><strong>Piège :</strong> un ministre sans décret d'attribution ne peut RIEN. Un préfet de région ne peut pas prendre d'arrêté de police.</p>
+</div>
+<div class="arbre">
+<h3>🌳 QUEL JUGE POUR QUEL ACTE ?</h3>
+<ul>
+<li><strong>Décret (Président ou PM)</strong> → Conseil d'État (1er et dernier ressort)</li>
+<li><strong>Arrêté ministériel</strong> → Tribunal administratif de Paris (ou du lieu)</li>
+<li><strong>Arrêté préfectoral</strong> → TA du ressort du préfet</li>
+<li><strong>Acte d'une collectivité</strong> → TA territorialement compétent</li>
+<li><strong>Acte d'un EP</strong> → TA du siège de l'EP</li>
+<li><strong>Sanction Autorité de la concurrence</strong> → Cour d'appel de Paris</li>
+</ul>
+<p><strong>Piège :</strong> les actes de gouvernement (nomination PM, dissolution, engagement des forces) = irrecevables.</p>
+</div>
+<div class="arbre">
+<h3>🌳 CONTRÔLE DE LÉGALITÉ : QUE PEUT LE PRÉFET ?</h3>
+<ul>
+<li>Le préfet <strong>NE PEUT PAS</strong> annuler un acte d'une collectivité territoriale.</li>
+<li>Il <strong>DOIT</strong> déférer l'acte au tribunal administratif (dans les 2 mois).</li>
+<li>Il <strong>PEUT</strong> demander la suspension en référé (urgence + doute sérieux).</li>
+<li>En <strong>urbanisme</strong> : déféré + demande de suspension dans les 10 jours = suspension automatique.</li>
+<li>En <strong>police</strong> : il peut se substituer au maire défaillant.</li>
+</ul>
+</div>
+</div>
+
+<!-- ========== CHECKLISTS FINALES ========== -->
+<div class="section s7">
+<h2>8. CHECKLISTS ULTIMES – AVANT DE COCHER</h2>
+<ul class="checklist">
+<li>J'ai identifié QUI agit et EN QUELLE QUALITÉ (double casquette ?).</li>
+<li>J'ai vérifié la COMPÉTENCE de l'auteur (décret d'attribution ? consultation obligatoire ?).</li>
+<li>J'ai déterminé si l'acte est un ACTE DE GOUVERNEMENT (irrecevable).</li>
+<li>J'ai identifié le CONTRÔLE applicable (hiérarchique, légalité, tutelle).</li>
+<li>J'ai trouvé la BONNE JURIDICTION (CE, TA, cour d'appel).</li>
+<li>J'ai vérifié les DÉLAIS (2 mois pour déféré, 4 mois pour retrait).</li>
+<li>J'ai pensé à la PROPORTIONNALITÉ pour les mesures de police.</li>
+<li>J'ai coché TOUTES les bonnes réponses (pas de points négatifs → toujours cocher au moins une case).</li>
+<li>J'ai relu les questions à POINTS DOUBLES.</li>
+<li>J'ai visualisé mon TABLEAU DE BORD MENTAL.</li>
+</ul>
+</div>
+
+<!-- ========== PIÈGES FINAUX ========== -->
+<div class="section s8">
+<h2>9. PIÈGES QUI REVIENNENT TOUT LE TEMPS</h2>
+<div class="box">
+<ol>
+<li><strong>Nomination du PM = acte de gouvernement</strong> → irrecevable.</li>
+<li><strong>Décret en CE sans consultation</strong> → vice de COMPÉTENCE.</li>
+<li><strong>Préfet de région et police</strong> → n'en a pas.</li>
+<li><strong>Ministre sans décret d'attribution</strong> → incompétent.</li>
+<li><strong>Maire agent de l'État</strong> → sous autorité hiérarchique du préfet.</li>
+<li><strong>Préfet ne peut pas annuler un acte d'une CT</strong> → seulement déférer.</li>
+<li><strong>Suspension du maire</strong> → ministre de l'Intérieur, pas le préfet.</li>
+<li><strong>Clause de compétence générale</strong> → seulement les communes.</li>
+<li><strong>Déféré hors délai (2 mois)</strong> → irrecevable.</li>
+<li><strong>Silence de 2 mois</strong> → acceptation implicite (depuis 2013).</li>
+<li><strong>Contrat sans délibération</strong> → nul.</li>
+<li><strong>Consultation obligatoire hors CE</strong> → vice de PROCÉDURE (pas compétence).</li>
+<li><strong>Traîté avec un État étranger par une CT</strong> → illégal.</li>
+<li><strong>AAI : recours selon le type</strong> → Autorité de la concurrence = cour d'appel de Paris.</li>
+<li><strong>Responsabilité de l'État pour carence du préfet</strong> → faute lourde.</li>
+</ol>
+</div>
+</div>
+
+<!-- ========== MOTIVATION FINALE ========== -->
+<div class="motivation">
+TU ES PRÊT. TU AS TOUT LE SYSTÈME DANS LA TÊTE.<br>
+À CHAQUE QUESTION, TU SORS L'ARBRE DE DÉCISION. TU DÉJOUES CHAQUE PIÈGE.<br>
+« I'M NOT A PERFECTIONIST, BUT I LIKE TO FEEL THAT THINGS ARE DONE WELL. » — CRISTIANO RONALDO.<br>
+MARCUS RASHFORD A SURMONTÉ TOUS LES OBSTACLES. TOI AUSSI.<br>
+SIUUUU ! 20/20. LETS GO.
+</div>
+
+<div class="footer">
+Système Ultime – Institutions Administratives – Pr. Dumont. Vous êtes programmé pour gagner.
+</div>
+
+</body>
+</html>
